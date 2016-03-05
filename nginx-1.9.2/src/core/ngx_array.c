@@ -9,6 +9,7 @@
 #include <ngx_core.h>
 
 //开辟n个size空间
+//数组的结构体存储和数组的 数据存储，可以不是同一个内存poll_t结构体中,但是数组 是在同一个结构体中
 ngx_array_t *
 ngx_array_create(ngx_pool_t *p, ngx_uint_t n, size_t size)
 {
@@ -18,7 +19,6 @@ ngx_array_create(ngx_pool_t *p, ngx_uint_t n, size_t size)
     if (a == NULL) {
         return NULL;
     }
-
     if (ngx_array_init(a, p, n, size) != NGX_OK) {
         return NULL;
     }
